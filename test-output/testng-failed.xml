@@ -6,7 +6,7 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <parameter name="os" value="windows"/>
-    <parameter name="browser" value="Edge"/>
+    <parameter name="browser" value="MicrosoftEdge"/>
     <parameter name="filePath" value="./testData/TestData_AccRegistraton_booking.com.xlsx"/>
     <classes>
       <class name="testcases.TC_001_001_RegistrationUsingEmail">
