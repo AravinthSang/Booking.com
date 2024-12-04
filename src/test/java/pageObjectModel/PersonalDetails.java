@@ -37,6 +37,57 @@ public class PersonalDetails extends BasePageModel {
 	private WebElement btnSaveNationality;
 	private WebElement divNationality;
 	
+	// for Gender
+	@FindBy(xpath="//div[@data-test-id='mysettings-row-gender']//span[@class='mVStVB15gUUbYLdUJFnM'][normalize-space()='Edit']")WebElement btnEditGender;
+	private WebElement dropdownGender;
+	private WebElement btnSaveGender;
+	
+	//for address
+	@FindBy(xpath="//div[@data-test-id='mysettings-row-address']//span[@class='mVStVB15gUUbYLdUJFnM'][normalize-space()='Edit']")WebElement btnEditAddress;
+	private WebElement dropdownRegion;
+	private WebElement txtAddress;
+	private WebElement txtCity;
+	private WebElement txtPostalCode;
+	private WebElement btnSaveAddress;
+	
+	public void clickonEditAddress() {
+		btnEditAddress.click();
+		dropdownRegion=driver.findElement(By.name("country"));
+		txtAddress=driver.findElement(By.name("line1"));
+		txtCity=driver.findElement(By.name("city"));
+		txtPostalCode=driver.findElement(By.name("zip"));
+		btnSaveAddress=driver.findElement(By.xpath("//span[normalize-space()='Save']"));
+	}
+	public void selectRegion(String region) {
+		Select select=new Select(dropdownRegion);
+		select.selectByValue(region);
+	}
+	public void sendTxtToAddress(String address) {
+		txtAddress.sendKeys(address);
+		
+	}
+	public void sendTxtToCity(String city) {
+		txtCity.sendKeys(city);
+	}
+	public void sendTxtToPostalCode(String zip) {
+		txtPostalCode.sendKeys(zip);
+		
+	}
+	public void clickonBtnSaveAddress() {
+		btnSaveAddress.click();
+	}
+	public void clickOnBtnEditGender() {
+		btnEditGender.click();
+		dropdownNationality=driver.findElement(By.name("gender"));
+		btnSaveGender=driver.findElement(By.xpath("//button[@type='submit']"));
+		
+	}
+	public void selectGender(String gender) {
+		Select genderSelect=new Select(dropdownGender);
+		genderSelect.selectByValue(gender);
+		btnSaveGender.click();
+		
+	}
 	public void clickOnBtnEditNationality() {
 		btnEditNationality.click();
 		dropdownNationality=driver.findElement(By.xpath("//select[@name='nationality']"));

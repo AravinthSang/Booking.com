@@ -26,7 +26,7 @@ public class TestBase {
 	@BeforeClass(alwaysRun = true)
 	@Parameters("browser")
 	public void setup(String browser) throws IOException {
-
+		//execution using selenium gird
 		DesiredCapabilities dc=new DesiredCapabilities();
 		dc.setBrowserName(browser);
 		dc.setPlatform(Platform.WIN10);
